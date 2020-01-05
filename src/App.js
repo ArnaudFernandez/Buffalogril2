@@ -4,20 +4,17 @@ import './App.css';
 
 import User from './components/User';
 import Hobby from './components/Hobby';
-import CustomPaginationActionsTable from './app_modules/Tableau';
-
+import Table from "./app_modules/Table";
 
 
 class App extends Component {
 
   constructor(props) {
 		super(props);
-		   
+
 		this.state = {
 			hobbies:[],
 		};
-
-		let table = CustomPaginationActionsTable('{name : "coucou"');
 	}
 
 
@@ -88,7 +85,6 @@ class App extends Component {
   }
 
   createTable() {
-      this.table = CustomPaginationActionsTable(this.state);
   }
   
   render() {
@@ -122,12 +118,13 @@ class App extends Component {
         <p style={{color: (this.state.hobbies.length < 5) ? 'green' : 'red'}}>
             Nombre de Hobbies : {this.state.hobbies.length}
         </p>
-
-          {this.table}
         
         <p>Un composant User ci-dessous:</p>
         <User name="Michel Buffa"/>
         <User name="Gabriel Mopolo"/>
+
+        <Table data={this.state} />
+
       </div>
     );
   }
