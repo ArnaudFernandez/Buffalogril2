@@ -4,7 +4,8 @@ import './App.css';
 
 import User from './components/User';
 import Hobby from './components/Hobby';
-import Table from "./app_modules/Table";
+import TableRestaurant from "./app_modules/Table";
+import ReactDOM from "react-dom";
 
 
 class App extends Component {
@@ -13,16 +14,16 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			hobbies:[],
+			restaurants:[],
 		};
 	}
 
 
 	
   addHobby() {
-		let oldHobbies = this.state.hobbies;
+		let oldrestaurants = this.state.restaurants;
 		this.setState({
-			hobbies: oldHobbies.concat(this.input.value)
+			restaurants: oldrestaurants.concat(this.input.value)
     });
     
     this.input.value = "";
@@ -30,18 +31,18 @@ class App extends Component {
   
   removeHobby(hobby) {
 		/*
-		let oldHobbies = this.state.hobbies;
-		let pos = this.state.hobbies.indexOf(hobby);
-		oldHobbies.splice(pos, 1);
+		let oldrestaurants = this.state.restaurants;
+		let pos = this.state.restaurants.indexOf(hobby);
+		oldrestaurants.splice(pos, 1);
 		*/
-	const oldHobbies = this.state.hobbies.filter(
+	const oldrestaurants = this.state.restaurants.filter(
       (elem, index) => {
         return (elem !== hobby) ? elem : null;
       }
     );	
 		
 		this.setState({
-			hobbies: oldHobbies
+			restaurants: oldrestaurants
 		});
 	}
 
@@ -54,15 +55,14 @@ class App extends Component {
                 data = response.json(); // transforme le json texte en objet js
             })
             .then( () => { // data c'est le texte json de response ci-dessus
-                let newHobbies = [];
+                let newrestaurants = [];
                 data.then(resp => {
                     console.log(resp);
                     for (let i = 0; i < resp.data.length; i++) {
-                        newHobbies.push(resp.data[i].name);
-                        console.log(resp.data[i].name)
+                        newrestaurants.push(resp.data[i].name);
                     }
                     this.setState({
-                        hobbies: newHobbies
+                        restaurants: newrestaurants
                     });
 
                     this.createTable();
@@ -86,17 +86,17 @@ class App extends Component {
 
   createTable() {
   }
-  
+
   render() {
     console.log("render");
-    let list = this.state.hobbies.map(
+    let list = this.state.restaurants.map(
 			(el) => {
 				return <li onClick={() => this.removeHobby(el)} key={el}>{el}</li>
 			}
     );
     
     let listAvecComponent = 
-				this.state.hobbies.map((el, index) => {
+				this.state.restaurants.map((el, index) => {
 				return <Hobby 
 								 name={el}
 								 key={index} 
@@ -108,26 +108,23 @@ class App extends Component {
     return (
 
       <div className="App">
-        <h3>Liste des Hobbies :</h3>
-        <input 
-					type="text" 
-					ref={(input) => this.input = input}
-					
-					/>
-				<button onClick={() => this.addHobby()}>Add Hobby</button>
-        <p style={{color: (this.state.hobbies.length < 5) ? 'green' : 'red'}}>
-            Nombre de Hobbies : {this.state.hobbies.length}
-        </p>
-        
-        <p>Un composant User ci-dessous:</p>
-        <User name="Michel Buffa"/>
-        <User name="Gabriel Mopolo"/>
 
-        <Table data={this.state} />
+        <input
+                type="text"
+                ref={(input) => this.input = input}
+                />
+				<button onClick={() => this.addHobby()}>Ajouter un restaurant</button>
+          <p>
+            Nombre de restaurants : {this.state.restaurants.length}
+          </p>
 
+          <h1>Liste des restaurants :</h1>
+
+        <TableRestaurant data={this.state}/>
       </div>
     );
   }
 }
 
 export default App;
+

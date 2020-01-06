@@ -10,7 +10,7 @@ var assert = require('assert');
 const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'test';
+const dbName = 'restaurants';
 
 exports.connexionMongo = function(callback) {
     MongoClient.connect(url, function(err, client) {
@@ -45,7 +45,7 @@ exports.countRestaurants = function(name,callback) {
     });
 };
 
-exports.findRestaurants = function(page, pagesize, name, callback) {
+exports.findRestaurants = function(name, callback) {
     MongoClient.connect(url, function(err, client) {
 
         var db = client.db(dbName);
@@ -55,8 +55,6 @@ exports.findRestaurants = function(page, pagesize, name, callback) {
             if(name == ''){
                 db.collection('restaurants')
                     .find()
-                    .skip(page*pagesize)
-                    .limit(pagesize)
                     .toArray()
                     .then(arr=>{
                         db.collection('restaurants')

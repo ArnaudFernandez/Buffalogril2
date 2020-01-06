@@ -103,19 +103,12 @@ app.get('/api/restaurants/count', function(req, res) {
 // Oui, on va faire de la pagination, pour afficher
 // par exemple les restaurants 10 par 10
 app.get('/api/restaurants', function(req, res) {
-    // Si présent on prend la valeur du param, sinon 1
-    let page = parseInt(req.query.page || 1);
-    // idem si present on prend la valeur, sinon 10
-    let pagesize = parseInt(req.query.pagesize || 10);
-
     let name = req.query.name || '';
 
-
-    mongoDBModule.findRestaurants(page, pagesize, name, function(data,count) {
+    mongoDBModule.findRestaurants(name, function(data) {
         var objdData = {
             msg:"restaurant recherchés avec succès",
-            data: data,
-            count:count
+            data: data
         }
         res.send(JSON.stringify(objdData));
     });
