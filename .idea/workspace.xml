@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92fad0be-2e52-4c6b-bc5b-009f5403e268" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app_modules/css/Table.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverNode.js" beforeDir="false" afterPath="$PROJECT_DIR$/serverNode.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app_modules/Table.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_modules/Table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_modules/crud_mongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_modules/crud_mongo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -46,6 +43,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -78,21 +76,45 @@
       <workItem from="1576842617606" duration="1979000" />
       <workItem from="1576949439325" duration="838000" />
       <workItem from="1578235356677" duration="7280000" />
-      <workItem from="1578295169229" duration="8518000" />
+      <workItem from="1578295169229" duration="10910000" />
     </task>
+    <task id="LOCAL-00001" summary="Added pagination &amp; table control">
+      <created>1578320878821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578320878821</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added pagination &amp; table control" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pagination &amp; table control" />
   </component>
   <component name="WindowStateProjectService">
     <state x="388" y="263" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1578313190192">
       <screen x="0" y="0" width="1280" height="735" />
     </state>
     <state x="388" y="263" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.735@0.0.1280.735" timestamp="1578313190192" />
+    <state x="234" y="0" key="CommitChangelistDialog2" timestamp="1578320877746">
+      <screen x="0" y="0" width="1280" height="735" />
+    </state>
+    <state x="234" y="0" key="CommitChangelistDialog2/0.0.1280.735@0.0.1280.735" timestamp="1578320877746" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1578320881964">
+      <screen x="0" y="0" width="1280" height="735" />
+    </state>
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.735@0.0.1280.735" timestamp="1578320881964" />
     <state x="319" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1578295169032">
       <screen x="0" y="0" width="1280" height="735" />
     </state>
     <state x="319" y="232" key="com.intellij.ide.util.TipDialog/0.0.1280.735@0.0.1280.735" timestamp="1578295169032" />
+    <state x="305" y="59" width="670" height="676" key="search.everywhere.popup" timestamp="1578326194014">
+      <screen x="0" y="0" width="1280" height="735" />
+    </state>
+    <state x="305" y="59" width="670" height="676" key="search.everywhere.popup/0.0.1280.735@0.0.1280.735" timestamp="1578326194014" />
   </component>
 </project>

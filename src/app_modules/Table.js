@@ -8,6 +8,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from "@material-ui/core/TablePagination";
 
+import './css/Table.css';
+import Button from "@material-ui/core/Button";
+
 export default function TableRestaurant(data) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -26,6 +29,12 @@ export default function TableRestaurant(data) {
         setPage(0);
     };
 
+    function deleteElement(_id) {
+        if(_id !== undefined) {
+            console.log(_id);
+        }
+    }
+
     return <TableContainer component={Paper}>
         <Table aria-label="Restaurant table">
             <TableHead>
@@ -37,9 +46,10 @@ export default function TableRestaurant(data) {
                 {data.data.restaurants
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map(row => (
-                    <TableRow onClick={deleteElement(row)}>
+                    <TableRow class="tableRow">
                         <TableCell component="th" scope="row">
-                            {row}
+                            {row.name}
+                            <Button onClick={deleteElement.bind(this,row._id)} variant="contained" color="primary" class="deleteButton">Supprimer</Button>
                         </TableCell>
                     </TableRow>
                 ))}
@@ -53,8 +63,4 @@ export default function TableRestaurant(data) {
             />
         </Table>
     </TableContainer>
-}
-
-function deleteElement(data) {
-    console.log(data);
 }

@@ -7,7 +7,6 @@ import Hobby from './components/Hobby';
 import TableRestaurant from "./app_modules/Table";
 import ReactDOM from "react-dom";
 
-
 class App extends Component {
 
   constructor(props) {
@@ -59,7 +58,7 @@ class App extends Component {
                 data.then(resp => {
                     console.log(resp);
                     for (let i = 0; i < resp.data.length; i++) {
-                        newrestaurants.push(resp.data[i].name);
+                        newrestaurants.push(resp.data[i]);
                     }
                     this.setState({
                         restaurants: newrestaurants
