@@ -17,7 +17,6 @@ export default function TableRestaurant(data) {
 
     if(data.data.restaurants.length === 0) {
         data.data.restaurants = ["Chargement..."];
-        console.log(data);
     }
 
     const handleChangePage = (event, newPage) => {
@@ -29,10 +28,34 @@ export default function TableRestaurant(data) {
         setPage(0);
     };
 
+    function retrieveDataFromServer() {
+        let dataRetrieved;
+        fetch('http://localhost:8080/api/restaurants')
+            .then(response => {
+                dataRetrieved = response.json(); // transforme le json texte en objet js
+            })
+            .then( () => { // data c'est le texte json de response ci-dessus
+                dataRetrieved.then(resp => {
+                    data.data.restaurants = [];
+                    for (let i = 0; i < resp.data.length; i++) {
+                        data.data.restaurants.push(resp.data[i]);
+                    }
+                    setPage(1);
+                    setPage(0);
+                });
+            }).catch(err => {
+        });
+    }
+
     function deleteElement(_id) {
-        if(_id !== undefined) {
-            console.log(_id);
-        }
+        fetch('http://localhost:8080/api/restaurants/' + _id, {
+            method: 'delete'
+        })
+            .then( () => { // data c'est le texte json de response ci-dessus
+                retrieveDataFromServer()
+            })
+            .catch(err => {
+        });
     }
 
     return <TableContainer component={Paper}>
