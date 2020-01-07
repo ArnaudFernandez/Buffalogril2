@@ -7,9 +7,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TablePagination from "@material-ui/core/TablePagination";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/DeleteForeverRounded";
+import CancelIcon from '@material-ui/icons/Cancel';
 
 import './css/Table.css';
-import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
 
 export default function TableRestaurant(data) {
     const [page, setPage] = useState(0);
@@ -51,7 +54,7 @@ export default function TableRestaurant(data) {
         fetch('http://localhost:8080/api/restaurants/' + _id, {
             method: 'delete'
         })
-            .then( () => { // data c'est le texte json de response ci-dessus
+            .then( () => {
                 retrieveDataFromServer()
             })
             .catch(err => {
@@ -72,7 +75,9 @@ export default function TableRestaurant(data) {
                     <TableRow class="tableRow">
                         <TableCell component="th" scope="row">
                             {row.name}
-                            <Button onClick={deleteElement.bind(this,row._id)} variant="contained" color="primary" class="deleteButton">Supprimer</Button>
+                            <Fab color="secondary" aria-label="add" onClick={deleteElement.bind(this,row._id)} >
+                                <CancelIcon />
+                            </Fab>
                         </TableCell>
                     </TableRow>
                 ))}
